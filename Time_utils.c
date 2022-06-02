@@ -6,13 +6,13 @@
 /*   By: ttwycros <ttwycros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:05:02 by ttwycros          #+#    #+#             */
-/*   Updated: 2022/06/02 17:06:49 by ttwycros         ###   ########.fr       */
+/*   Updated: 2022/06/02 17:45:16 by ttwycros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Philosophers.h"
 
-long long	timestamp(void)
+long long	ft_get_time(void)
 {
 	struct timeval	t;
 
@@ -25,14 +25,14 @@ long long	time_diff(long long past, long long pres)
 	return (pres - past);
 }
 
-void	smart_sleep(long long time, t_gamerules *rules)
+void	ft_sleep(long long time, t_gamerules *rules)
 {
 	long long	i;
 
-	i = timestamp();
+	i = ft_get_time();
 	while (!rules->died)
 	{
-		if (time_diff(i, timestamp()) >= time)
+		if (time_diff(i, ft_get_time()) >= time)
 			break ;
 		usleep(50);
 	}

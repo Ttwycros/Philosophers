@@ -6,7 +6,7 @@
 /*   By: ttwycros <ttwycros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:04:53 by ttwycros          #+#    #+#             */
-/*   Updated: 2022/06/02 17:08:17 by ttwycros         ###   ########.fr       */
+/*   Updated: 2022/06/02 17:46:14 by ttwycros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ int			init_philo(t_gamerules *rules);
 int			general_init(t_gamerules *rules, char **av);
 int			error_manager(int error);
 int			ft_atoi(const char *str);
-long long	timestamp(void);
+long long	ft_get_time(void);
 long long	time_diff(long long past, long long pres);
-void		smart_sleep(long long time, t_gamerules *rules);
-void		print_action(t_gamerules *rules, int id, char *string);
+void		ft_sleep(long long time, t_gamerules *rules);
+void		action(t_gamerules *rules, int id, char *string);
 void		philo_eating(t_philo *philo);
 int			write_error(char *str);
 int			game(t_gamerules *rules);

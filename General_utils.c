@@ -6,7 +6,7 @@
 /*   By: ttwycros <ttwycros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:05:14 by ttwycros          #+#    #+#             */
-/*   Updated: 2022/06/02 17:08:28 by ttwycros         ###   ########.fr       */
+/*   Updated: 2022/06/02 17:40:41 by ttwycros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,4 @@ int	ft_atoi(const char *str)
 			return (ft_long(nbr, sign));
 	}
 	return ((int)nbr * sign);
-}
-
-void	print_action(t_gamerules *rules, int id, char *string)
-{
-	pthread_mutex_lock(&(rules->for_print));
-	if (!rules->died)
-	{
-		printf("%lli ", timestamp() - rules->first_timestamp);
-		printf("%i ", id + 1);
-		printf("%s\n", string);
-	}
-	pthread_mutex_unlock(&(rules->for_print));
-	return ;
 }

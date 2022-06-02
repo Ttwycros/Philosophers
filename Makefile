@@ -6,7 +6,8 @@ CFLAGS =	-g -Werror -Wextra -Wall -MMD -pthread
 RM =	rm -rf
 
 SRC =		Main.c\
-			Philosopher.c\
+			Init.c\
+			Philosopher_actions.c\
 			General_utils.c\
 			Errors.c\
 			Game.c\
