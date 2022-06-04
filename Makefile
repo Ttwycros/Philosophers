@@ -13,7 +13,7 @@ SRC =		Main.c\
 			Game.c\
 			Time_utils.c\
 
-INCLUDE =	-I philo.h\
+INCLUDE =	-I Philosophers.h\
 
 OBJ =	$(SRC:.c=.o)
 D =		$(SRC:.c=.d)
