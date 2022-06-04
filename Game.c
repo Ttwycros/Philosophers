@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   Game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttwycros <ttwycros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:04:32 by ttwycros          #+#    #+#             */
-/*   Updated: 2022/06/02 17:48:28 by ttwycros         ###   ########.fr       */
+/*   Updated: 2022/06/04 17:27:12 by ttwycros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,16 @@ void	*philo_thread(void *current_philo)
 	return (NULL);
 }
 
-void	are_they_dead(t_gamerules *rules, t_philo *philo)
+void	are_they_dead(t_gamerules *rules, t_philo *philo, int i)
 {
-	int	i;
-
 	while (!(rules->all_ate))
 	{
 		i = -1;
 		while (++i < rules->nb_of_philos && !(rules->died))
 		{
 			pthread_mutex_lock(&(rules->meal_check));
-			if (time_diff(philo[i].last_eat, ft_get_time()) > rules->time_to_die)
+			if (time_diff(philo[i].last_eat, ft_get_time())
+				> rules->time_to_die)
 			{
 				action(rules, i, "died");
 				rules->died = 1;
@@ -89,7 +88,7 @@ int	game(t_gamerules *rules)
 		philo[i].last_eat = ft_get_time();
 		i++;
 	}
-	are_they_dead(rules, rules->philos);
+	are_they_dead(rules, rules->philos, -1);
 	exit_game(rules);
 	return (0);
 }
